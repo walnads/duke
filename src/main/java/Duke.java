@@ -36,7 +36,7 @@ public class Duke {
 
                     } else {
                         tasks.add(new Todo(input.substring(4)));
-                        out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %s tasks in the list.",
+                        out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks in the list.",
                                 tasks.get(tasks.size() - 1), tasks.size()));
                     }
 
@@ -47,7 +47,7 @@ public class Duke {
                     } else {
                         String[] temp = input.substring(8).split(" /by ");
                         tasks.add(new Deadline(temp[0], temp[1]));
-                        out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %s tasks in the list.",
+                        out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks in the list.",
                                 tasks.get(tasks.size() - 1), tasks.size()));
                     }
 
@@ -58,9 +58,17 @@ public class Duke {
                     } else {
                         String[] temp = input.substring(5).split(" /at ");
                         tasks.add(new Event(temp[0], temp[1]));
-                        out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %s tasks in the list.",
+                        out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks in the list.",
                                 tasks.get(tasks.size() - 1), tasks.size()));
                     }
+
+                } else if (input.contains("delete")) {
+                    int id = Integer.parseInt(input.substring(input.length() - 1));
+                    String str = tasks.get(id - 1).toString();
+                    tasks.remove(id -1);
+
+                    out.println(String.format("Noted. I've removed this task:\n  %s\nNow you have %d tasks in the list",
+                            str, tasks.size()));
 
                 } else {
                     throw new DukeException("\u2639 OOPS!!! I'm sorry, but I don't know what that means :-(");
