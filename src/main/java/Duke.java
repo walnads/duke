@@ -1,8 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class Duke {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        List<String> strings = new ArrayList<>();
 
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -13,7 +16,16 @@ public class Duke {
 
         String input = sc.nextLine();
         while (!(input.equals("bye"))) {
-            System.out.println(input);
+            if (input.equals("list")) {
+                for (int i = 0; i < strings.size(); i++) {
+                    System.out.println((i+1) + ". " + strings.get(i));
+                }
+
+            } else {
+                strings.add(input);
+                System.out.println("added: " + input);
+            }
+
             input = sc.nextLine();
         }
 
