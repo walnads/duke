@@ -29,6 +29,7 @@ public class Duke {
                     int id = Integer.parseInt(input.substring(input.length() - 1));
                     tasks.get(id - 1).markAsDone();
                     out.println("Nice! I've marked this task as done:\n    " + tasks.get(id - 1));
+                    writeData(tasks);
 
                 } else if (input.contains("todo")) {
                     if (input.length() < 6) {
@@ -38,6 +39,7 @@ public class Duke {
                         tasks.add(new Todo(input.substring(4)));
                         out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks in the list.",
                                 tasks.get(tasks.size() - 1), tasks.size()));
+                        writeData(tasks);
                     }
 
                 } else if (input.contains("deadline")) {
@@ -49,6 +51,7 @@ public class Duke {
                         tasks.add(new Deadline(temp[0], temp[1]));
                         out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks in the list.",
                                 tasks.get(tasks.size() - 1), tasks.size()));
+                        writeData(tasks);
                     }
 
                 } else if (input.contains("event")) {
@@ -60,6 +63,7 @@ public class Duke {
                         tasks.add(new Event(temp[0], temp[1]));
                         out.println(String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks in the list.",
                                 tasks.get(tasks.size() - 1), tasks.size()));
+                        writeData(tasks);
                     }
 
                 } else if (input.contains("delete")) {
@@ -69,6 +73,7 @@ public class Duke {
 
                     out.println(String.format("Noted. I've removed this task:\n  %s\nNow you have %d tasks in the list",
                             str, tasks.size()));
+                    writeData(tasks);
 
                 } else {
                     throw new DukeException("\u2639 OOPS!!! I'm sorry, but I don't know what that means :-(");
@@ -82,5 +87,17 @@ public class Duke {
         }
 
         System.out.println("Bye. Hope to see you again soon!");
+    }
+
+    private static void writeData(List<Task> tasks) throws IOException {
+        FileWriter fw = new FileWriter("C:\\Users\\User\\Documents\\duke\\data\\duke.txt");
+        String text = "";
+
+        for (Task t : tasks) {
+            text += t.printString() + "\n";
+        }
+
+        fw.write(text);
+        fw.close();
     }
 }

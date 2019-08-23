@@ -15,6 +15,10 @@ public class Task {
         isDone = true;
     }
 
+    public String printString() {
+        return String.format("T | %d | %s | %s", isDone ? 1 : 0, description);
+    }
+
     @Override
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
