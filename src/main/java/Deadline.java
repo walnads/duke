@@ -1,9 +1,15 @@
-public class Deadline extends Task {
-    protected String by;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    public Deadline(String description, String by) {
+public class Deadline extends Task {
+    protected Date by;
+
+    public Deadline(String description, String by) throws ParseException {
         super(description);
-        this.by = by;
+
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HHmm");
+        this.by = format.parse(by);
     }
 
     @Override
@@ -13,6 +19,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + by + ")";
+        SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
+        return "[D]" + super.toString() + " (by: " + d.format(by) + ")";
     }
 }

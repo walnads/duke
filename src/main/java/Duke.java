@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
@@ -81,6 +82,9 @@ public class Duke {
 
             } catch (DukeException e){
                 out.println(e.getMessage());
+
+            } catch (ParseException e) {
+                out.println("Please ensure that date is in dd/MM/yyyy HHmm format (e.g. 2/12/2019 1800).");
             }
 
             input = sc.nextLine();
