@@ -15,7 +15,8 @@ public class Event extends Task {
 
     @Override
     public String printString() {
-        return String.format("D | %d |%s | %s", isDone ? 1 : 0, description, at);
+        SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
+        return String.format("E | %d | %s | %s", isDone ? 1 : 0, description, d.format(at));
     }
 
     public String toString() {
