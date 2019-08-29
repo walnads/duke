@@ -2,9 +2,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * A representation of the deadline task.
+ */
 public class Deadline extends Task {
     protected Date by;
 
+    /**
+     * Public constructor for the Deadline class.
+     * Creates an incomplete deadline task.
+     *
+     * @param description Description of the task.
+     * @param by Date and time the task is due.
+     * @throws ParseException If by is not of "dd/MM/yyyy HHmm" format.
+     */
     public Deadline(String description, String by) throws ParseException {
         super(description);
 
@@ -12,12 +23,22 @@ public class Deadline extends Task {
         this.by = format.parse(by);
     }
 
+    /**
+     * Converts information about the deadline task to String format (for addition to the data file).
+     *
+     * @return Task information in String format.
+     */
     @Override
     public String printString() {
         SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
         return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, d.format(by));
     }
 
+    /**
+     * Converts information about the deadline task to String format (for printing to the UI).
+     *
+     * @return Task information in String format.
+     */
     @Override
     public String toString() {
         SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");

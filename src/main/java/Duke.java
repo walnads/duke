@@ -1,15 +1,18 @@
-import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.List;
-import java.io.*;
 
+/**
+ * The class that manages the workflow of the chatbot application.
+ */
 public class Duke {
     private Storage storage;
     private UI ui;
     private TaskList taskList;
     private Parser parser;
 
+    /**
+     * Public constructor for Duke class.
+     * Initialises Storage, UI, TaskList, and Parser classes.
+     */
     public Duke() {
         ui = new UI();
         storage = new Storage("C:\\Users\\User\\Documents\\duke\\data\\duke.txt");
@@ -24,6 +27,9 @@ public class Duke {
         ui.show("Hello from\n" + logo + "\n" + "Hello! I'm Duke\n" + "What can I do for you?");
     }
 
+    /**
+     * Runs the chatbot application.
+     */
     public void run() {
         Scanner sc = new Scanner(System.in);
 

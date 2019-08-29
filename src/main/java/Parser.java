@@ -1,12 +1,27 @@
 import java.text.ParseException;
 
+/**
+ * The class that makes sense of user input;
+ */
 public class Parser {
     protected TaskList tl;
 
+    /**
+     * Public constructor for Parser class.
+     *
+     * @param tl TaskList object containing all the methods for creating, getting, and retrieving all the tasks.
+     */
     public Parser(TaskList tl) {
         this.tl = tl;
     }
 
+    /**
+     * Parses the user's input.
+     *
+     * @param input User input to be parsed.
+     * @return The chatbot's response based on the parsed input in String format.
+     * @throws DukeException If the user input is incomplete (i.e. does not contain the task description or date).
+     */
     public String parse(String input) throws DukeException {
         if (input.equals("list")) {
             return tl.view();

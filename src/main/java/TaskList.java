@@ -1,15 +1,26 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The class that contains the task list.
+ */
 public class TaskList {
     protected List<Task> tasks;
     protected Storage storage;
 
+    /**
+     * Public constructor for Tasklist class.
+     *
+     * @param storage Storage object containing all the methods for writing and retrieving from the data file.
+     */
     public TaskList(Storage storage) {
         this.tasks = new ArrayList<>();
         this.storage = storage;
     }
 
+    /**
+     * Updates the tasks list in the data file.
+     */
     private void update() {
         try {
             storage.update(tasks);
@@ -19,6 +30,12 @@ public class TaskList {
         }
     }
 
+    /**
+     * Iterates through all the tasks in the task list.
+     * Creates a String containing information about all the tasks.
+     *
+     * @return String containing information about all the tasks.
+     */
     public String view() {
         String str = "Here are the tasks in your list:\n";
         for (int i = 0; i < tasks.size(); i++) {
@@ -27,6 +44,12 @@ public class TaskList {
         return str.substring(0, str.length()-1);
     }
 
+    /**
+     * Adds a Task to the task list.
+     *
+     * @param t The Task object to be added.
+     * @return The chatbot's response in String format.
+     */
     public String add(Task t) {
         tasks.add(t);
         update();
@@ -34,6 +57,12 @@ public class TaskList {
                 tasks.get(tasks.size() - 1), tasks.size());
     }
 
+    /**
+     * Deletes a Task from the task list.
+     *
+     * @param i The index of the Task object to be deleted.
+     * @return The chatbot's response in String format.
+     */
     public String delete(int i) {
         String str = tasks.get(i-1).toString();
         tasks.remove(i-1);
@@ -42,6 +71,12 @@ public class TaskList {
                 str, tasks.size());
     }
 
+    /**
+     * Marks a Task in a task list as done.
+     *
+     * @param i The index of the Task object to be modified.
+     * @return The chatbot's response in String format.
+     */
     public String markDone(int i) {
         tasks.get(i-1).markAsDone();
         update();
