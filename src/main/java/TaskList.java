@@ -42,6 +42,19 @@ public class TaskList {
                 str, tasks.size());
     }
 
+    public String find(String input) {
+        String str = "Here are the matching taskss in your list:\n";
+
+        int num = 1;
+        for (Task t : tasks) {
+            if (t.description.contains(input)) {
+                str += String.format("%d. %s\n", num, t);
+                num++;
+            }
+        }
+        return str.substring(0, str.length()-1);
+    }
+
     public String markDone(int i) {
         tasks.get(i-1).markAsDone();
         update();

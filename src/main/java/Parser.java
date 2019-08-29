@@ -57,6 +57,9 @@ public class Parser {
         } else if (input.contains("delete")) {
             int id = Integer.parseInt(input.substring(input.length() - 1));
             return tl.delete(id -1);
+
+        } else if (input.contains("find")) {
+            return tl.find(input.substring(5));
         }
 
         return "bye";
