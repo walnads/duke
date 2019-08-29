@@ -72,6 +72,25 @@ public class TaskList {
     }
 
     /**
+     * Finds a matching task given the String input.
+     *
+     * @param input The matching String input.
+     * @return The chatbot's response in String format.
+     */
+    public String find(String input) {
+        String str = "Here are the matching tasks in your list:\n";
+
+        int num = 1;
+        for (Task t : tasks) {
+            if (t.description.contains(input)) {
+                str += String.format("%d. %s\n", num, t);
+                num++;
+            }
+        }
+        return str.substring(0, str.length()-1);
+    }
+
+    /**
      * Marks a Task in a task list as done.
      *
      * @param i The index of the Task object to be modified.
