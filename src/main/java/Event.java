@@ -30,8 +30,8 @@ public class Event extends Task {
      */
     @Override
     public String printString() {
-        SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return String.format("E | %d | %s | %s", isDone ? 1 : 0, description, d.format(at));
+        SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
+        return String.format("E | %d | %s | %s", isDone ? 1 : 0, description, date.format(at));
     }
 
     /**
@@ -41,7 +41,7 @@ public class Event extends Task {
      */
     @Override
     public String toString() {
-        SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return "[E]" + super.toString() + " (at: " + d.format(at) + ")";
+        SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
+        return "[E]" + super.toString() + " (at: " + date.format(at) + ")";
     }
 }

@@ -4,15 +4,15 @@ import java.text.ParseException;
  * The class that makes sense of user input;
  */
 public class Parser {
-    protected TaskList tl;
+    protected TaskList taskList;
 
     /**
      * Public constructor for Parser class.
      *
-     * @param tl TaskList object containing all the methods for creating, getting, and retrieving all the tasks.
+     * @param taskList TaskList object containing all the methods for creating, getting, and retrieving all the tasks.
      */
-    public Parser(TaskList tl) {
-        this.tl = tl;
+    public Parser(TaskList taskList) {
+        this.taskList = taskList;
     }
 
     /**
@@ -24,11 +24,11 @@ public class Parser {
      */
     public String parse(String input) throws DukeException {
         if (input.equals("list")) {
-            return tl.view();
+            return taskList.view();
 
         } else if (input.contains("done")) {
             int id = Integer.parseInt(input.substring(input.length() - 1));
-            return tl.markDone(id);
+            return taskList.markDone(id);
 
         } else if (input.contains("todo")) {
             if (input.length() < 6) {
@@ -36,7 +36,7 @@ public class Parser {
 
             } else {
                 Task t = new Todo(input.substring(5));
-                return tl.add(t);
+                return taskList.add(t);
             }
 
         } else if (input.contains("deadline")) {
@@ -47,7 +47,7 @@ public class Parser {
                 try {
                     String[] temp = input.substring(9).split(" /by ");
                     Task t = new Deadline(temp[0], temp[1]);
-                    return tl.add(t);
+                    return taskList.add(t);
 
                 } catch (ParseException e) {
                     return "\u2639 OOPS!!! Your date is not in dd/MM/yyyy HHmm format (e.g. 2/12/2019 1800)";
@@ -62,7 +62,7 @@ public class Parser {
                 try {
                     String[] temp = input.substring(6).split(" /at ");
                     Task t = new Event(temp[0], temp[1]);
-                    return tl.add(t);
+                    return taskList.add(t);
 
                 } catch (ParseException e) {
                     return "\u2639 OOPS!!! Your date is not in dd/MM/yyyy HHmm format (e.g. 2/12/2019 1800)";
@@ -71,7 +71,7 @@ public class Parser {
 
         } else if (input.contains("delete")) {
             int id = Integer.parseInt(input.substring(input.length() - 1));
-            return tl.delete(id -1);
+            return taskList.delete(id -1);
         }
 
         return "bye";
