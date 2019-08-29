@@ -30,8 +30,8 @@ public class Deadline extends Task {
      */
     @Override
     public String printString() {
-        SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, d.format(by));
+        SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
+        return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, date.format(by));
     }
 
     /**
@@ -41,7 +41,7 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
-        SimpleDateFormat d = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return "[D]" + super.toString() + " (by: " + d.format(by) + ")";
+        SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
+        return "[D]" + super.toString() + " (by: " + date.format(by) + ")";
     }
 }

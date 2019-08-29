@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Storage {
     protected String filePath;
-    protected FileWriter fw;
+    protected FileWriter writer;
 
     /**
      * Public constructor for Storage class.
@@ -24,14 +24,14 @@ public class Storage {
      * @throws IOException If the file path is incorrect.
      */
     public void update(List<Task> tasks) throws IOException {
-        fw = new FileWriter(filePath);
+        writer = new FileWriter(filePath);
         String text = "";
 
         for (Task t : tasks) {
             text += t.printString() + "\n";
         }
 
-        fw.write(text);
-        fw.close();
+        writer.write(text);
+        writer.close();
     }
 }
