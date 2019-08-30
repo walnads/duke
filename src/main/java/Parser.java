@@ -1,7 +1,7 @@
 import java.text.ParseException;
 
 /**
- * The class that makes sense of user input;
+ * The class that makes sense of user input.
  */
 public class Parser {
     protected TaskList taskList;
@@ -71,12 +71,16 @@ public class Parser {
 
         } else if (input.contains("delete")) {
             int id = Integer.parseInt(input.substring(input.length() - 1));
-            return taskList.delete(id -1);
+            return taskList.delete(id - 1);
 
         } else if (input.contains("find")) {
             return taskList.find(input.substring(5));
-        }
 
-        return "bye";
+        } else if (input.equals("bye")) {
+            return input;
+
+        }  else {
+            return "\u2639 OOPS!!! I'm sorry, but I don't know what that means :-(";
+        }
     }
 }
