@@ -10,7 +10,7 @@ public class Task {
      * Public constructor for Task class.
      * Creates an incomplete (status-wise) task by default.
      *
-     * @param description
+     * @param description Description of the task.
      */
     public Task(String description) {
         this.description = description;

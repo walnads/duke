@@ -41,7 +41,7 @@ public class TaskList {
         for (int i = 0; i < tasks.size(); i++) {
             str += (i + 1) + ". " + tasks.get(i) + "\n";
         }
-        return str.substring(0, str.length()-1);
+        return str.substring(0, str.length() - 1);
     }
 
     /**
@@ -64,8 +64,8 @@ public class TaskList {
      * @return The chatbot's response in String format.
      */
     public String delete(int i) {
-        String str = tasks.get(i-1).toString();
-        tasks.remove(i-1);
+        String str = tasks.get(i - 1).toString();
+        tasks.remove(i - 1);
         update();
         return String.format("Noted. I've removed this task:\n  %s\nNow you have %d tasks in the list",
                 str, tasks.size());
@@ -87,7 +87,7 @@ public class TaskList {
                 num++;
             }
         }
-        return str.substring(0, str.length()-1);
+        return str.substring(0, str.length() - 1);
     }
 
     /**
@@ -97,8 +97,8 @@ public class TaskList {
      * @return The chatbot's response in String format.
      */
     public String markDone(int i) {
-        tasks.get(i-1).markAsDone();
+        tasks.get(i - 1).markAsDone();
         update();
-        return "Nice! I've marked this task as done:\n  " + tasks.get(i-1);
+        return "Nice! I've marked this task as done:\n  " + tasks.get(i - 1);
     }
 }
