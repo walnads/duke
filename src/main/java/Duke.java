@@ -33,19 +33,24 @@ public class Duke {
     public void run() {
         Scanner sc = new Scanner(System.in);
 
-        try {
-            String parsedInput = parser.parse(sc.nextLine());
+        String input = sc.nextLine();
 
-            while (!(parsedInput.equals("bye"))) {
+        while (!(input.equals("bye"))) {
+            String parsedInput = "";
+
+            try {
+                parsedInput = parser.parse(input);
                 ui.show(parsedInput);
-                parsedInput = parser.parse(sc.nextLine());
-            }
-            ui.show("Bye. Hope to see you again soon!");
 
-        } catch (DukeException e) {
-            ui.show(e.getMessage());
-            run();
+            } catch (DukeException e) {
+                ui.show(e.getMessage());
+
+            } finally {
+                input = sc.nextLine();
+            }
         }
+
+        ui.show("Bye. Hope to see you again soon!");
     }
 
     public static void main(String[] args) {
