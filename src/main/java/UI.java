@@ -2,7 +2,7 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
 /**
- * The class that deals with interactions with the user
+ * The class that deals with interactions with the user.
  */
 public class UI {
     protected PrintStream out;
