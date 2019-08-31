@@ -37,11 +37,16 @@ public class TaskList {
      * @return String containing information about all the tasks.
      */
     public String view() {
-        String str = "Here are the tasks in your list:\n";
-        for (int i = 0; i < tasks.size(); i++) {
-            str += (i + 1) + ". " + tasks.get(i) + "\n";
+        if (tasks.size() > 0) {
+            String str = "Here are the tasks in your list:\n";
+            for (int i = 0; i < tasks.size(); i++) {
+                str += (i + 1) + ". " + tasks.get(i) + "\n";
+            }
+            return str.substring(0, str.length() - 1);
+
+        } else {
+            return "You have no tasks in your list";
         }
-        return str.substring(0, str.length() - 1);
     }
 
     /**
