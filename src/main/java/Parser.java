@@ -71,7 +71,7 @@ public class Parser {
 
         } else if (input.contains("delete")) {
             int id = Integer.parseInt(input.substring(input.length() - 1));
-            return taskList.delete(id - 1);
+            return taskList.delete(id);
 
         } else if (input.contains("find")) {
             return taskList.find(input.substring(5));
