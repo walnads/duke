@@ -1,3 +1,6 @@
+package duke;
+
+import duke.task.Task;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +71,7 @@ public class TaskList {
      * @param i The index of the Task object to be deleted.
      * @return The chatbot's response in String format.
      */
-    public String delete(int i) {
+    public String delete(int i) throws IndexOutOfBoundsException {
         String str = tasks.get(i - 1).toString();
         tasks.remove(i - 1);
         update();
@@ -87,7 +90,7 @@ public class TaskList {
 
         int num = 1;
         for (Task t : tasks) {
-            if (t.description.contains(input)) {
+            if (t.getDescription().contains(input)) {
                 str += String.format("%d. %s\n", num, t);
                 num++;
             }
@@ -101,7 +104,7 @@ public class TaskList {
      * @param i The index of the Task object to be modified.
      * @return The chatbot's response in String format.
      */
-    public String markDone(int i) {
+    public String markDone(int i) throws IndexOutOfBoundsException {
         tasks.get(i - 1).markAsDone();
         update();
         return "Nice! I've marked this task as done:\n  " + tasks.get(i - 1);

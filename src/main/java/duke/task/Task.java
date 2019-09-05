@@ -1,3 +1,5 @@
+package duke.task;
+
 /**
  * A representation a task.
  * The base class for all the other task classes.
@@ -15,6 +17,14 @@ public class Task {
     public Task(String description) {
         this.description = description;
         this.isDone = false;
+    }
+
+    /**
+     * Gets the description of the task.
+     * @return The description of the task in String format.
+     */
+    public String getDescription() {
+        return description;
     }
 
     /**

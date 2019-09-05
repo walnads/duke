@@ -1,3 +1,8 @@
+package duke.gui;
+
+import duke.*;
+import duke.exception.*;
+
 import javafx.application.Application;
 
 import javafx.scene.Scene;
@@ -15,6 +20,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.stage.Stage;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class Client extends Application {
 
@@ -131,10 +138,11 @@ public class Client extends Application {
         }
 
         try {
-            return app.parser.parse(input);
+            return Duke.parser.parse(input).execute();
 
-        } catch (DukeException e) {
+        } catch (Exception e) {
             return e.getMessage();
+
         }
     }
 }

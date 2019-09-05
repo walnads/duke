@@ -1,3 +1,5 @@
+package duke.task;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,7 +8,7 @@ import java.util.Date;
  * A representation of the event task.
  */
 public class Event extends Task {
-    protected Date at;
+    private Date at;
 
     /**
      * Public constructor for the Event class.

@@ -1,10 +1,12 @@
+package duke;
+
 /**
  * The class contains all the custom classes (not related to UI) needed for application.
  */
 public class Duke {
-    protected Storage storage;
-    protected TaskList taskList;
-    protected Parser parser;
+    public static Storage storage;
+    public static TaskList taskList;
+    public static Parser parser;
 
     /**
      * Public constructor for Duke class.
@@ -12,7 +14,7 @@ public class Duke {
      */
     public Duke() {
         storage = new Storage("C:\\Users\\User\\Documents\\duke\\data\\duke.txt");
-        taskList = new TaskList(storage);
-        parser = new Parser(taskList);
+        taskList = new TaskList(Duke.storage);
+        parser = new Parser(Duke.taskList);
     }
 }

@@ -1,3 +1,5 @@
+package duke.task;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,7 +8,7 @@ import java.util.Date;
  * A representation of the deadline task.
  */
 public class Deadline extends Task {
-    protected Date by;
+    private Date by;
 
     /**
      * Public constructor for the Deadline class.

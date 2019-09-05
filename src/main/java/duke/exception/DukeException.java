@@ -1,3 +1,5 @@
+package duke.exception;
+
 /**
  * The base class for other checked exceptions in the chatbot application.
  */
