@@ -29,7 +29,7 @@ public class TaskList {
             storage.update(tasks);
 
         } catch (Exception e) {
-            return;
+            assert false;
         }
     }
 
