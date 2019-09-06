@@ -17,7 +17,7 @@ public class ListCommand extends Command {
      * @return All the tasks in String format.
      */
     @Override
-    public String execute() {
+    public String executeCommand() {
         return Duke.taskList.view();
     }
 }

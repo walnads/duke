@@ -138,7 +138,7 @@ public class Client extends Application {
         }
 
         try {
-            return Duke.parser.parse(input).execute();
+            return Duke.parser.parse(input).executeCommand();
 
         } catch (Exception e) {
             return e.getMessage();

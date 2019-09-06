@@ -8,7 +8,7 @@ import java.util.Date;
  * A representation of the event task.
  */
 public class Event extends Task {
-    private Date at;
+    private Date atDate;
 
     /**
      * Public constructor for the Event class.
@@ -22,7 +22,7 @@ public class Event extends Task {
         super(description);
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HHmm");
-        this.at = format.parse(at);
+        this.atDate = format.parse(at);
     }
 
     /**
@@ -31,9 +31,9 @@ public class Event extends Task {
      * @return Task information in String format.
      */
     @Override
-    public String printString() {
+    public String printToTxtFile() {
         SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return String.format("E | %d | %s | %s", isDone ? 1 : 0, description, date.format(at));
+        return String.format("E | %d | %s | %s", isDone ? 1 : 0, description, date.format(atDate));
     }
 
     /**
@@ -44,6 +44,6 @@ public class Event extends Task {
     @Override
     public String toString() {
         SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return "[E]" + super.toString() + " (at: " + date.format(at) + ")";
+        return "[E]" + super.toString() + " (at: " + date.format(atDate) + ")";
     }
 }
