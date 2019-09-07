@@ -17,7 +17,7 @@ public class ExitCommand extends Command {
      * @return Duke's goodbye message in String format.
      */
     @Override
-    public String execute() {
+    public String executeCommand() {
         return "Bye. Hope to see you again soon!";
     }
 }

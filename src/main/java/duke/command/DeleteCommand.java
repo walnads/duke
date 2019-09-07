@@ -19,7 +19,7 @@ public class DeleteCommand extends Command {
      * @return Duke's response during/after deleting the task.
      * @throws MissingParameterException if there are missing parameters.
      */
-    public String execute() throws MissingParameterException {
+    public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
             throw new MissingParameterException("\u2639 OOPS!!! Please specify the index of the task to be deleted.");
 

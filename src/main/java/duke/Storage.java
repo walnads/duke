@@ -28,13 +28,13 @@ public class Storage {
      */
     public void update(List<Task> tasks) throws IOException {
         writer = new FileWriter(filePath);
-        String text = "";
+        StringBuilder text = new StringBuilder();
 
         for (Task t : tasks) {
-            text += t.printString() + "\n";
+            text.append(String.format("%s\n", t.printToTxtFile()));
         }
 
-        writer.write(text);
+        writer.write(text.toString());
         writer.close();
     }
 }

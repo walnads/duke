@@ -14,7 +14,7 @@ public class DoneCommand extends Command {
     }
 
     @Override
-    public String execute() {
+    public String executeCommand() {
         try {
             int id = Integer.parseInt(parameters);
             return Duke.taskList.markDone(id);
