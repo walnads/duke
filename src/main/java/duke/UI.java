@@ -17,7 +17,7 @@ public class UI {
             this.out = new PrintStream(System.out, true, "UTF-8");
 
         } catch (UnsupportedEncodingException e) {
-            return; // Will never happen in this context.
+            assert false;
         }
     }
 
