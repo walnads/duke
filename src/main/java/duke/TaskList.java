@@ -50,11 +50,13 @@ public class TaskList {
      */
     public String view() {
         if (tasks.size() > 0) {
-            String str = "Here are the tasks in your list:\n";
+            StringBuilder str = new StringBuilder();
+            str.append("Here are the tasks in your list:\n");
             for (int i = 0; i < tasks.size(); i++) {
-                str += (i + 1) + ". " + tasks.get(i) + "\n";
+                str.append(String.format("%d. %s\n", (i + 1), tasks.get(i)));
             }
-            return str.substring(0, str.length() - 1);
+            str.deleteCharAt(str.length() - 1);
+            return str.toString();
 
         } else {
             return "You have no tasks in your list";
@@ -107,16 +109,18 @@ public class TaskList {
      * @return The chatbot's response in String format.
      */
     public String find(String input) {
-        String str = "Here are the matching tasks in your list:\n";
+        StringBuilder str = new StringBuilder();
+        str.append("Here are the matching tasks in your list:\n");
 
         int num = 1;
         for (Task t : tasks) {
             if (t.getDescription().contains(input)) {
-                str += String.format("%d. %s\n", num, t);
+                str.append(String.format("%d. %s\n", num, t));
                 num++;
             }
         }
-        return str.substring(0, str.length() - 1);
+        str.deleteCharAt(str.length() - 1);
+        return str.toString();
     }
 
     /**

@@ -18,7 +18,7 @@ public class Todo extends Task {
      * @return Task information in String format.
      */
     @Override
-    public String printString() {
+    public String printToTxtFile() {
         return String.format("T | %d | %s", isDone ? 1 : 0, description);
     }
 
@@ -29,6 +29,6 @@ public class Todo extends Task {
      */
     @Override
     public String toString() {
-        return "[T]" + super.toString();
+        return String.format("[T]%s", super.toString());
     }
 }

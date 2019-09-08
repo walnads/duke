@@ -8,7 +8,7 @@ import java.util.Date;
  * A representation of the deadline task.
  */
 public class Deadline extends Task {
-    private Date by;
+    private Date byDate;
 
     /**
      * Public constructor for the Deadline class.
@@ -22,7 +22,7 @@ public class Deadline extends Task {
         super(description);
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HHmm");
-        this.by = format.parse(by);
+        this.byDate = format.parse(by);
     }
 
     /**
@@ -31,9 +31,9 @@ public class Deadline extends Task {
      * @return Task information in String format.
      */
     @Override
-    public String printString() {
+    public String printToTxtFile() {
         SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, date.format(by));
+        return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, date.format(byDate));
     }
 
     /**
@@ -44,6 +44,6 @@ public class Deadline extends Task {
     @Override
     public String toString() {
         SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
-        return "[D]" + super.toString() + " (by: " + date.format(by) + ")";
+        return String.format("[D]%s (by: %s)", super.toString(), date.format(byDate));
     }
 }

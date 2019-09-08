@@ -19,7 +19,7 @@ public class FindCommand extends Command {
      * @return The tasks containing the String the user is searching for.
      * @throws MissingParameterException if there are missing parameters in the command.
      */
-    public String execute() throws MissingParameterException {
+    public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
             throw new MissingParameterException("\u2639 OOPS!!! Please provide a search query.");
         } else {

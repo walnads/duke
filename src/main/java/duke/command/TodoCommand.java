@@ -22,7 +22,7 @@ public class TodoCommand extends Command {
      * @return Duke's response during/after creating the Todo task object.
      * @throws MissingParameterException if there are missing parameters in the command.
      */
-    public String execute() throws MissingParameterException {
+    public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
             throw new MissingParameterException("\u2639 OOPS!!! The description of a todo cannot be empty.");
 

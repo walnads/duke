@@ -19,12 +19,12 @@ public class DoneCommand extends Command {
     }
 
     @Override
-    public String execute() throws MissingParameterException {
+    public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
             throw new MissingParameterException("\u2639 OOPS!!! Please specify the index of the task to be" +
                     "marked done.");
         }
-
+  
         try {
             String[] paramArr = parameters.split(" ");
             int[] intArr = Arrays.stream(paramArr).mapToInt(x -> Integer.parseInt(x)).toArray();

@@ -48,7 +48,7 @@ public class Task {
      *
      * @return Task information in String format.
      */
-    public String printString() {
+    public String printToTxtFile() {
         return String.format("T | %d | %s | %s", isDone ? 1 : 0, description);
     }
 
@@ -59,6 +59,6 @@ public class Task {
      */
     @Override
     public String toString() {
-        return "[" + getStatusIcon() + "] " + description;
+        return String.format("[%s] %s", getStatusIcon(), description);
     }
 }
