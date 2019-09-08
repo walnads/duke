@@ -2,6 +2,9 @@ package duke.command;
 
 import duke.Duke;
 import duke.exception.MissingParameterException;
+
+import java.util.Arrays;
+
 /**
  * The class that handles all the methods involving deleting a task.
  */
@@ -22,15 +25,18 @@ public class DeleteCommand extends Command {
     public String execute() throws MissingParameterException {
         if (parameters.length() <= 0) {
             throw new MissingParameterException("\u2639 OOPS!!! Please specify the index of the task to be deleted.");
+        }
 
-        } else {
-            try {
-                int id = Integer.parseInt(parameters);
-                return Duke.taskList.delete(id);
+        try {
+            String[] paramArr = parameters.split(" ");
+            int[] intArr = Arrays.stream(paramArr).mapToInt(x -> Integer.parseInt(x)).toArray();
+            return Duke.taskList.delete(intArr);
 
-            } catch (IndexOutOfBoundsException e) {
-                return "\u2639 OOPS!!! A task with this index does not exist.";
-            }
+        } catch (ClassCastException e) {
+            return "\u2639 OOPS!!! Please enter integers only.";
+
+        } catch (NumberFormatException e) {
+            return "\u2639 OOPS!!! Please enter integers only.";
         }
     }
 }

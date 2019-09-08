@@ -22,5 +22,6 @@ public abstract class Command {
         this.parameters = parameters;
     }
 
+
     public abstract String execute() throws MissingParameterException;
 }

@@ -2,6 +2,7 @@ package duke;
 
 import duke.task.Task;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,6 +32,14 @@ public class TaskList {
         } catch (Exception e) {
             return;
         }
+    }
+
+    /**
+     * Gets the number of tasks in the task list.
+     * @return The number of tasks in the task list.
+     */
+    public int getNoOfTasks() {
+        return tasks.size();
     }
 
     /**
@@ -68,15 +77,27 @@ public class TaskList {
     /**
      * Deletes a Task from the task list.
      *
-     * @param i The index of the Task object to be deleted.
+     * @param indexes The index of the Task object to be deleted.
      * @return The chatbot's response in String format.
      */
-    public String delete(int i) throws IndexOutOfBoundsException {
-        String str = tasks.get(i - 1).toString();
-        tasks.remove(i - 1);
-        update();
-        return String.format("Noted. I've removed this task:\n  %s\nNow you have %d tasks in the list",
-                str, tasks.size());
+    public String delete(int[] indexes) {
+        StringBuilder output = new StringBuilder("Noted. I've removed this task:\n");
+
+        Arrays.sort(indexes);
+        if (indexes[indexes.length - 1] > indexes.length) {
+            return "\u2639 OOPS!!! Please specify an index within the range.";
+        }
+
+        int reduce = 0;
+        for (int index : indexes) {
+            output.append(String.format("\t%s\n", tasks.get(index - 1 - reduce)));
+            tasks.remove(index - 1 - reduce);
+            reduce += 1;
+        }
+
+        output.append(String.format("Now you have %d tasks in the list", tasks.size()));
+        output.deleteCharAt(output.length() - 1);
+        return output.toString();
     }
 
     /**
@@ -101,12 +122,23 @@ public class TaskList {
     /**
      * Marks a Task in a task list as done.
      *
-     * @param i The index of the Task object to be modified.
+     * @param indexes The indexes of the Task object to be modified.
      * @return The chatbot's response in String format.
      */
-    public String markDone(int i) throws IndexOutOfBoundsException {
-        tasks.get(i - 1).markAsDone();
-        update();
-        return "Nice! I've marked this task as done:\n  " + tasks.get(i - 1);
+    public String markDone(int[] indexes) {
+        StringBuilder output = new StringBuilder("Nice! I've marked this task as done:\n");
+
+        Arrays.sort(indexes);
+        if (indexes[indexes.length - 1] > indexes.length) {
+            return "\u2639 OOPS!!! Please specify an index within the range.";
+        }
+
+        for (int index : indexes) {
+            tasks.get(index - 1).markAsDone();
+            output.append(String.format("\t%s\n", tasks.get(index - 1)));
+        }
+
+        output.deleteCharAt(output.length() - 1);
+        return output.toString();
     }
 }
