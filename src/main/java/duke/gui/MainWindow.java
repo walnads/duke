@@ -35,6 +35,17 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
+     * Displays the message when the application first starts up.
+     */
+    public void displayStartMsg() {
+        String text = String.format("Hello! How can I help you today? :~) \n%s",
+                duke.getResponse("list"));
+        dialogContainer.getChildren().addAll(
+                DialogBox.getDukeDialog(text, dukeImage)
+        );
+    }
+
+    /**
      * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
