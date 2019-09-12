@@ -26,10 +26,10 @@ public class EventCommand extends Command {
      */
     public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
-            throw new MissingParameterException("\u2639 OOPS!!! The description and date of a event cannot be empty.");
+            throw new MissingParameterException(">:( !!! The description and date of a event cannot be empty.");
 
         } else if (!(parameters.contains("/at"))) {
-            throw new MissingParameterException("\u2639 OOPS!!! The date of a event cannot be empty.");
+            throw new MissingParameterException(">:( !!! The date of a event cannot be empty.");
 
         } else {
             try {
@@ -38,7 +38,7 @@ public class EventCommand extends Command {
                 return Duke.taskList.add(t);
 
             } catch (ParseException e) {
-                return "\u2639 OOPS!!! Your date is not in dd/MM/yyyy HHmm format (e.g. 2/12/2019 1800)";
+                return ">:( !!! Your date is not in dd/MM/yyyy HHmm format (e.g. 2/12/2019 1800)";
             }
         }
     }

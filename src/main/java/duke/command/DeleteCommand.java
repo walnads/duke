@@ -24,7 +24,7 @@ public class DeleteCommand extends Command {
      */
     public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
-            throw new MissingParameterException("\u2639 OOPS!!! Please specify the index of the task to be deleted.");
+            throw new MissingParameterException(">:( !!! Please specify the index of the task to be deleted.");
         }
 
         try {
@@ -33,10 +33,10 @@ public class DeleteCommand extends Command {
             return Duke.taskList.delete(intArr);
 
         } catch (ClassCastException e) {
-            return "\u2639 OOPS!!! Please enter integers only.";
+            return ">:( !!! Please enter integers only.";
 
         } catch (NumberFormatException e) {
-            return "\u2639 OOPS!!! Please enter integers only.";
+            return ">:( !!! Please enter integers only.";
         }
     }
 }

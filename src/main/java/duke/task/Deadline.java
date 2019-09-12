@@ -32,7 +32,7 @@ public class Deadline extends Task {
      */
     @Override
     public String printToTxtFile() {
-        SimpleDateFormat date = new SimpleDateFormat("E, dd/MM/yyyy HH:mm");
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy HHmm");
         return String.format("D | %d | %s | %s", isDone ? 1 : 0, description, date.format(byDate));
     }
 

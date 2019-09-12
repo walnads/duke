@@ -3,6 +3,7 @@ package duke;
 import duke.exception.DukeException;
 import duke.exception.InvalidCommandException;
 import duke.command.*;
+import duke.task.Task;
 
 /**
  * The class that makes sense of user input.

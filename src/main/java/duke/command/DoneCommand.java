@@ -21,7 +21,7 @@ public class DoneCommand extends Command {
     @Override
     public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
-            throw new MissingParameterException("\u2639 OOPS!!! Please specify the index of the task to be" +
+            throw new MissingParameterException(">:( !!! Please specify the index of the task to be" +
                     "marked done.");
         }
   
@@ -31,13 +31,13 @@ public class DoneCommand extends Command {
             return Duke.taskList.markDone(intArr);
 
         } catch (ArrayIndexOutOfBoundsException e) {
-            return "\u2639 OOPS!!! Please specify an index within the range.";
+            return ">:( !!! Please specify an index within the range.";
 
         } catch (ClassCastException e) {
-            return "\u2639 OOPS!!! Please enter integers only.";
+            return ">:( !!! Please enter integers only.";
 
         } catch (NumberFormatException e) {
-            return "\u2639 OOPS!!! Please enter integers only.";
+            return ">:( !!! Please enter integers only.";
         }
     }
 }

@@ -59,7 +59,7 @@ public class TaskList {
             return str.toString();
 
         } else {
-            return "You have no tasks in your list";
+            return "You have no tasks in your list! Add one now! ;~)";
         }
     }
 
@@ -72,7 +72,7 @@ public class TaskList {
     public String add(Task t) {
         tasks.add(t);
         update();
-        return String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks in the list.",
+        return String.format("Got it. I've added this task:\n  %s\nNow you have %d tasks.",
                 tasks.get(tasks.size() - 1), tasks.size());
     }
 
@@ -86,8 +86,8 @@ public class TaskList {
         StringBuilder output = new StringBuilder("Noted. I've removed this task:\n");
 
         Arrays.sort(indexes);
-        if (indexes[indexes.length - 1] > indexes.length) {
-            return "\u2639 OOPS!!! Please specify an index within the range.";
+        if (indexes[indexes.length - 1] > tasks.size()) {
+            return ">:( !!! Please specify an index within the range.";
         }
 
         int reduce = 0;
@@ -97,7 +97,8 @@ public class TaskList {
             reduce += 1;
         }
 
-        output.append(String.format("Now you have %d tasks in the list", tasks.size()));
+        update();
+        output.append(String.format("Now you have %d tasks.", tasks.size()));
         output.deleteCharAt(output.length() - 1);
         return output.toString();
     }
@@ -110,7 +111,7 @@ public class TaskList {
      */
     public String find(String input) {
         StringBuilder str = new StringBuilder();
-        str.append("Here are the matching tasks in your list:\n");
+        str.append("Here are the matching tasks:\n");
 
         int num = 1;
         for (Task t : tasks) {
@@ -134,7 +135,7 @@ public class TaskList {
 
         Arrays.sort(indexes);
         if (indexes[indexes.length - 1] > indexes.length) {
-            return "\u2639 OOPS!!! Please specify an index within the range.";
+            return ">:( !!! Please specify an index within the range.";
         }
 
         for (int index : indexes) {
@@ -142,6 +143,7 @@ public class TaskList {
             output.append(String.format("\t%s\n", tasks.get(index - 1)));
         }
 
+        update();
         output.deleteCharAt(output.length() - 1);
         return output.toString();
     }

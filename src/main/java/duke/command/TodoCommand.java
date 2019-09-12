@@ -24,7 +24,7 @@ public class TodoCommand extends Command {
      */
     public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
-            throw new MissingParameterException("\u2639 OOPS!!! The description of a todo cannot be empty.");
+            throw new MissingParameterException(">:( !!! The description of a todo cannot be empty.");
 
         } else {
             Task t = new Todo(parameters);

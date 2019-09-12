@@ -21,7 +21,7 @@ public class FindCommand extends Command {
      */
     public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
-            throw new MissingParameterException("\u2639 OOPS!!! Please provide a search query.");
+            throw new MissingParameterException(">:( !!! Please provide a search query.");
         } else {
             return Duke.taskList.find(parameters);
         }

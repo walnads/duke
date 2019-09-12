@@ -18,6 +18,6 @@ public class ExitCommand extends Command {
      */
     @Override
     public String executeCommand() {
-        return "Bye. Hope to see you again soon!";
+        return "Bye!!! :~)";
     }
 }
