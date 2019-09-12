@@ -18,8 +18,8 @@ public class TaskList {
      * @param storage Storage object containing all the methods for writing and retrieving from the data file.
      */
     public TaskList(Storage storage) {
-        this.tasks = new ArrayList<>();
         this.storage = storage;
+        this.tasks = storage.load();
     }
 
     /**

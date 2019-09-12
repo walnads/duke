@@ -13,7 +13,7 @@ public class Duke {
      * Initialises Storage, TaskList, and Parser classes.
      */
     public Duke() {
-        storage = new Storage("C:\\Users\\User\\Documents\\duke\\data\\duke.txt");
+        storage = new Storage();
         taskList = new TaskList(Duke.storage);
         parser = new Parser(Duke.taskList);
     }
