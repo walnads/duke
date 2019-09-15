@@ -8,6 +8,7 @@ import java.util.Arrays;
 /**
  * The class that handles all the methods involving deleting a task.
  */
+
 public class DeleteCommand extends Command {
     /**
      * Public constructor for DeleteCommand.

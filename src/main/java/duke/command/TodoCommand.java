@@ -7,6 +7,7 @@ import duke.task.Todo;
 /**
  * The class handles methods involving creating a Todo task.
  */
+
 public class TodoCommand extends Command {
 
     /**

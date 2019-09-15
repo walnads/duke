@@ -5,6 +5,7 @@ import duke.exception.MissingParameterException;
 /**
  * The class handles methods involving finding a task.
  */
+
 public class FindCommand extends Command {
     /**
      * Public constructor for FindCommand.

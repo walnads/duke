@@ -4,6 +4,7 @@ import duke.exception.MissingParameterException;
 /**
  * The base class for all commands in the chatbot application.
  */
+
 public abstract class Command {
     protected String parameters;
 

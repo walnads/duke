@@ -1,6 +1,6 @@
 package duke.gui;
 
-import duke.*;
+import duke.Duke;
 
 public class Client {
     private Duke app;

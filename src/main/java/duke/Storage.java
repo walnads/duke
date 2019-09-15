@@ -5,7 +5,12 @@ import duke.task.Event;
 import duke.task.Task;
 import duke.task.Todo;
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+import java.io.IOException;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +51,10 @@ public class Storage {
         writer.close();
     }
 
+    /**
+     * Loads the task list from an existing data file.
+     * @return List of existing tasks.
+     */
     public List<Task> load() {
         try {
             String line;
@@ -62,6 +71,11 @@ public class Storage {
         }
     }
 
+    /**
+     * Parses each task from the data file to the appropriate Task object.
+     * @param line String describing the task.
+     * @return A Task object.
+     */
     private Task parse(String line) {
         String[] lineArr = line.split(String.format(" %s ", "\\|"));
         try {

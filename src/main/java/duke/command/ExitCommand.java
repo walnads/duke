@@ -4,6 +4,7 @@ import duke.exception.MissingParameterException;
 /**
  * The class handles all the methods involving ending the chat session with Duke.
  */
+
 public class ExitCommand extends Command {
     /**
      * Public constructor for ExitCommand.

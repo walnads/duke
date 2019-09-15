@@ -4,6 +4,7 @@ import duke.Duke;
 /**
  * The class handles methods involving listing all the tasks.
  */
+
 public class ListCommand extends Command {
     /**
      * Public constructor for ListCommand.

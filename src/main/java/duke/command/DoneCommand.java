@@ -9,9 +9,10 @@ import java.util.Arrays;
 /**
  * The class handles methods involving marking a task as Done.
  */
+
 public class DoneCommand extends Command {
     /**
-     * Public constructor for DoneCommand
+     * Public constructor for DoneCommand.
      * @param parameters Information needed to execute the command (i.e. index of task).
      */
     public DoneCommand(String parameters) {
@@ -21,8 +22,8 @@ public class DoneCommand extends Command {
     @Override
     public String executeCommand() throws MissingParameterException {
         if (parameters.length() <= 0) {
-            throw new MissingParameterException(">:( !!! Please specify the index of the task to be" +
-                    "marked done.");
+            throw new MissingParameterException(">:( !!! Please specify the index of the task to be"
+                    + "marked done.");
         }
   
         try {
