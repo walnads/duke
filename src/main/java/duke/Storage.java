@@ -6,6 +6,7 @@ import duke.task.Task;
 import duke.task.Todo;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,9 @@ public class Storage {
      * @throws IOException If the file path is incorrect.
      */
     public void update(List<Task> tasks) throws IOException {
+        File file = new File(filePath);
+        file.createNewFile();
+
         writer = new FileWriter(filePath);
         StringBuilder text = new StringBuilder();
 
@@ -83,7 +87,7 @@ public class Storage {
                 return event;
             }
 
-        } catch (Exception e) {
+        } catch (ParseException e) {
             assert false;
             return null;
         }
