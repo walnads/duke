@@ -15,7 +15,7 @@ public class ParserTest {
 
         //test case 1
         assertThrows(MissingParameterException.class, () -> {
-           p.parse("todo").executeCommand();
+            p.parse("todo").executeCommand();
         });
 
         //test case 2

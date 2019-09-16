@@ -18,8 +18,8 @@ public class TaskTest {
             Deadline task = new Deadline("complete lab 1", "7/9/2019 2359");
             assertEquals("D | 0 | complete lab 1 | 07/09/2019 2359", task.printToTxtFile());
 
-        } catch (Exception e){
-
+        } catch (Exception e) {
+            //shouldn't happen
         }
     }
 
@@ -30,7 +30,7 @@ public class TaskTest {
             assertEquals("E | 0 | attend formal dinner | 04/09/2019 1900", task.printToTxtFile());
 
         } catch (Exception e) {
-
+            //shouldn't happen
         }
     }
 }
