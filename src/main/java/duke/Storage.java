@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class Storage {
     private String filePath;
+    private String folderPath;
     private FileWriter writer;
     private BufferedReader reader;
 
@@ -27,6 +28,7 @@ public class Storage {
      * Public constructor for Storage class.
      */
     public Storage() {
+        this.folderPath = String.format("%s%s", System.getProperty("user.dir"), "\\data");
         this.filePath = String.format("%s%s", System.getProperty("user.dir"), "\\data\\duke.txt");
     }
 
@@ -37,6 +39,8 @@ public class Storage {
      * @throws IOException If the file path is incorrect.
      */
     public void update(List<Task> tasks) throws IOException {
+        File directory = new File(folderPath);
+        directory.mkdirs();
         File file = new File(filePath);
         file.createNewFile();
 
