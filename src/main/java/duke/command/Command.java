@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.exception.MissingParameterException;
+import duke.exception.DukeException;
 /**
  * The base class for all commands in the chatbot application.
  */
@@ -23,5 +23,5 @@ public abstract class Command {
         this.parameters = parameters;
     }
 
-    public abstract String executeCommand() throws MissingParameterException;
+    public abstract String executeCommand() throws DukeException;
 }

@@ -86,7 +86,7 @@ public class TaskList {
         StringBuilder output = new StringBuilder("Noted. I've removed this task:\n");
 
         Arrays.sort(indexes);
-        if (indexes[indexes.length - 1] > tasks.size()) {
+        if ((indexes[0] <= 0) || (indexes[indexes.length - 1] > tasks.size())) {
             return ">:( !!! Please specify an index within the range.";
         }
 
@@ -134,7 +134,7 @@ public class TaskList {
         StringBuilder output = new StringBuilder("Nice! I've marked this task as done:\n");
 
         Arrays.sort(indexes);
-        if (indexes[indexes.length - 1] > indexes.length) {
+        if ((indexes[0] <= 0) || (indexes[indexes.length - 1] > tasks.size())) {
             return ">:( !!! Please specify an index within the range.";
         }
 
