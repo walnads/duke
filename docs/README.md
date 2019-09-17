@@ -23,22 +23,27 @@ You can delete your tasks.
 ### Add a task
 
 To-do: todo <description>
+  
 i.e. todo lecture
   
 Event: event <description> /at <date>
+  
 i.e. event dinner /at 17/9/2019 1945
   
 Deadline: deadline <description> /by <date>
+  
 i.e. deadline assignment /by 17/9/2019 1945
   
 ### Delete a task
 
 delete <index> <index> ..... <index>
+  
 i.e. delete 1 2 3 4
   
 ### Mark task as done
 
 done <index> <index> ..... <index>
+  
 i.e. done 1 2 3 4
   
 ### List tasks
