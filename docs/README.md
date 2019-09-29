@@ -1,4 +1,4 @@
-# User Guide
+# SANA User Guide
 
 ## Features 
 
@@ -22,31 +22,31 @@ You can delete your tasks.
 
 ### Add a task
 
-To-do: todo <description>
+To-do: `todo [description]`
   
-i.e. todo lecture
+i.e. `todo lecture`
   
-Event: event <description> /at <date>
+Event: `event [description] /at [date]`
   
-i.e. event dinner /at 17/9/2019 1945
+i.e. `event dinner /at 17/9/2019 1945`
   
-Deadline: deadline <description> /by <date>
+Deadline: `deadline [description] /by [date]`
   
-i.e. deadline assignment /by 17/9/2019 1945
+i.e. `deadline assignment /by 17/9/2019 1945`
   
 ### Delete a task
 
-delete <index> <index> ..... <index>
+`delete [index] ..... [index]`
   
-i.e. delete 1 2 3 4
+i.e. `delete 1` or `delete 1 2 3 4`
   
 ### Mark task as done
 
-done <index> <index> ..... <index>
+`done [index] ..... [index]`
   
-i.e. done 1 2 3 4
+i.e. `done 1` or `done 1 2 3 4`
   
 ### List tasks
 
-list
+`list`
 
